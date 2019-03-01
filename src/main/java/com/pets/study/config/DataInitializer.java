@@ -29,11 +29,16 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
             createUser("Leticia Marques da Silva", "leticia@mgmdiag.com.br");
         }
 
-        User varUser = findByName("Eduardo");
-        System.out.println("varUser = " + varUser.getName());
-       // User varUser = userRepository.getOne(3L);
-       // varUser.setName("Leticia Marques da Silva");
-        // userRepository.save(varUser);
+        List<User> varUser = userRepository.findByNameLike("Edu");
+        System.out.println("*****************************" + '\n' + "1° Nome = " + varUser.getName() + '\n');
+        System.out.println("Email = " + varUser.getEmail() + '\n' + "*****************************");
+        /*User varUser = userRepository.findByNameLike("Edu");
+        System.out.println("*****************************" + '\n' + "1° Nome = " + varUser.getName() + '\n');
+        System.out.println("Email = " + varUser.getEmail() + '\n' + "*****************************");
+
+        varUser = userRepository.findByNameIgnoreCase("milton marques da silva junior");
+        System.out.println("*****************************" + '\n' + "2° Nome = " + varUser.getName() + '\n');
+        System.out.println("Email = " + varUser.getEmail() + '\n' + "*****************************");*/
     }
 
     public void createUser(String name, String email){
