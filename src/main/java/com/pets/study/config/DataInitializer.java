@@ -21,24 +21,18 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
         //System.out.println("Entrou aqui !");
 
         List<User> listUser = userRepository.findAll();
-        
+
         if(listUser.isEmpty()){
             createUser("Eduardo Marques da Silva", "e.marquesds@gmail.com");
             createUser("Milton Marques da Silva Junior", "junior@mgmdiag.com.br");
             createUser("Isabel Cristina Falcirolli Marques da Silva", "isabel@mgmdiag.com.br");
             createUser("Leticia Marques da Silva", "leticia@mgmdiag.com.br");
         }
-
-        User varUser = findByName("Eduardo");
-        System.out.println("varUser = " + varUser.getName());
-       // User varUser = userRepository.getOne(3L);
-       // varUser.setName("Leticia Marques da Silva");
-        // userRepository.save(varUser);
+        //User varUser = userRepository.findByName("e.marquesds@gmail.com");
     }
 
     public void createUser(String name, String email){
         User varUser = new User(name, email);
-
         userRepository.save(varUser);
     }
 }
